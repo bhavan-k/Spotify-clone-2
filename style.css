@@ -834,7 +834,7 @@ input[type=range]:hover::-webkit-slider-thumb, input[type=range]:focus-visible::
     .song-list-header { display: none; }
     
     .song-item {
-        grid-template-columns: 40px 1fr;
+        grid-template-columns: 1fr;
         padding: var(--space-sm);
     }
     
