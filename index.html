@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar -->
@@ -16,11 +18,12 @@
                 <i class="fas fa-times" aria-hidden="true"></i>
             </button>
             <div class="logo" role="banner">
-                <i class="fab fa-spotify" aria-hidden="true"></i>
+                <i class="fab fa-Spotify" aria-hidden="true"></i>
                 <span>Spotify</span>
             </div>
             <nav class="nav-links" aria-label="Main Navigation">
-                <a href="#" class="active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i> <span>Home</span></a>
+                <a href="#" class="active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i>
+                    <span>Home</span></a>
                 <a href="#"><i class="fas fa-search" aria-hidden="true"></i> <span>Search</span></a>
                 <a href="#"><i class="fas fa-book-open" aria-hidden="true"></i> <span>Your Library</span></a>
             </nav>
@@ -45,13 +48,16 @@
                     <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
                 <div class="nav-arrows">
-                    <button aria-label="Go Back" class="nav-btn"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                    <button aria-label="Go Forward" class="nav-btn"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                    <button aria-label="Go Back" class="nav-btn"><i class="fas fa-chevron-left"
+                            aria-hidden="true"></i></button>
+                    <button aria-label="Go Forward" class="nav-btn"><i class="fas fa-chevron-right"
+                            aria-hidden="true"></i></button>
                 </div>
-                
+
                 <div class="search-container">
                     <i class="fas fa-search search-icon" aria-hidden="true"></i>
-                    <input type="text" id="search-input" placeholder="What do you want to listen to?" aria-label="Search for songs or artists">
+                    <input type="text" id="search-input" placeholder="What do you want to listen to?"
+                        aria-label="Search for songs or artists">
                 </div>
 
                 <div class="user-profile">
@@ -63,16 +69,17 @@
                     </button>
                 </div>
             </header>
-            
+
             <div class="content-body">
                 <h2 class="fade-in-up" style="animation-delay: 0.05s;">Good evening</h2>
-                
+
                 <section class="featured-cards fade-in-up" aria-label="Featured Mixes">
                     <!-- Cards -->
                     <article class="card" onclick="playSong(0)" role="button" tabindex="0" aria-label="Play Believe">
                         <div class="card-img-container">
                             <img src="images/album_cover_1_1778072184839.png" alt="Believe Album Cover" loading="lazy">
-                            <button class="play-btn-card" aria-label="Play Believe" tabindex="-1"><i class="fas fa-play" aria-hidden="true"></i></button>
+                            <button class="play-btn-card" aria-label="Play Believe" tabindex="-1"><i class="fas fa-play"
+                                    aria-hidden="true"></i></button>
                         </div>
                         <div class="card-info">
                             <h3 class="card-title" title="Believe">Believe</h3>
@@ -82,17 +89,21 @@
                     <article class="card" onclick="playSong(1)" role="button" tabindex="0" aria-label="Play Hyperion">
                         <div class="card-img-container">
                             <img src="images/album_cover_2_1778072205727.png" alt="Hyperion Album Cover" loading="lazy">
-                            <button class="play-btn-card" aria-label="Play Hyperion" tabindex="-1"><i class="fas fa-play" aria-hidden="true"></i></button>
+                            <button class="play-btn-card" aria-label="Play Hyperion" tabindex="-1"><i
+                                    class="fas fa-play" aria-hidden="true"></i></button>
                         </div>
                         <div class="card-info">
                             <h3 class="card-title" title="Hyperion">Hyperion</h3>
                             <p class="card-subtitle">Scott Buckley</p>
                         </div>
                     </article>
-                    <article class="card" onclick="playSong(3)" role="button" tabindex="0" aria-label="Play Thatched Villagers v2">
+                    <article class="card" onclick="playSong(3)" role="button" tabindex="0"
+                        aria-label="Play Thatched Villagers v2">
                         <div class="card-img-container">
-                            <img src="images/album_cover_3_1778072221458.png" alt="Thatched Villagers v2 Album Cover" loading="lazy">
-                            <button class="play-btn-card" aria-label="Play Thatched Villagers v2" tabindex="-1"><i class="fas fa-play" aria-hidden="true"></i></button>
+                            <img src="images/album_cover_3_1778072221458.png" alt="Thatched Villagers v2 Album Cover"
+                                loading="lazy">
+                            <button class="play-btn-card" aria-label="Play Thatched Villagers v2" tabindex="-1"><i
+                                    class="fas fa-play" aria-hidden="true"></i></button>
                         </div>
                         <div class="card-info">
                             <h3 class="card-title" title="Thatched Villagers v2">Thatched Villagers v2</h3>
@@ -102,7 +113,8 @@
                     <article class="card" onclick="playSong(4)" role="button" tabindex="0" aria-label="Play Destiny">
                         <div class="card-img-container">
                             <img src="images/album_cover_2_1778072205727.png" alt="Destiny Album Cover" loading="lazy">
-                            <button class="play-btn-card" aria-label="Play Destiny" tabindex="-1"><i class="fas fa-play" aria-hidden="true"></i></button>
+                            <button class="play-btn-card" aria-label="Play Destiny" tabindex="-1"><i class="fas fa-play"
+                                    aria-hidden="true"></i></button>
                         </div>
                         <div class="card-info">
                             <h3 class="card-title" title="Destiny">Destiny</h3>
@@ -112,7 +124,8 @@
                     <article class="card" onclick="playSong(5)" role="button" tabindex="0" aria-label="Play With U">
                         <div class="card-img-container">
                             <img src="images/album_cover_3_1778072221458.png" alt="With U Album Cover" loading="lazy">
-                            <button class="play-btn-card" aria-label="Play With U" tabindex="-1"><i class="fas fa-play" aria-hidden="true"></i></button>
+                            <button class="play-btn-card" aria-label="Play With U" tabindex="-1"><i class="fas fa-play"
+                                    aria-hidden="true"></i></button>
                         </div>
                         <div class="card-info">
                             <h3 class="card-title" title="With U">With U</h3>
@@ -128,7 +141,8 @@
                     <span>Album</span>
                     <i class="far fa-clock right-align"></i>
                 </div>
-                <div class="divider fade-in-up" style="animation-delay: 0.35s; margin-top: 4px; margin-bottom: 16px;" role="separator"></div>
+                <div class="divider fade-in-up" style="animation-delay: 0.35s; margin-top: 4px; margin-bottom: 16px;"
+                    role="separator"></div>
                 <section class="song-list" id="song-list" aria-label="Song List">
                     <!-- Populated by JS -->
                 </section>
@@ -143,16 +157,22 @@
                     <h4 id="current-title" class="title">Believe</h4>
                     <p id="current-artist" class="artist">Wanheda</p>
                 </div>
-                <button class="like-btn" aria-label="Like this song"><i class="far fa-heart" aria-hidden="true"></i></button>
+                <button class="like-btn" aria-label="Like this song"><i class="far fa-heart"
+                        aria-hidden="true"></i></button>
             </div>
-            
+
             <div class="player-controls">
                 <div class="controls-buttons">
-                    <button id="shuffle" aria-label="Enable shuffle" class="control-btn"><i class="fas fa-random" aria-hidden="true"></i></button>
-                    <button id="prev" aria-label="Previous track" class="control-btn"><i class="fas fa-step-backward" aria-hidden="true"></i></button>
-                    <button id="play-pause" class="play-circle" aria-label="Play or Pause"><i class="fas fa-play" id="play-icon" aria-hidden="true"></i></button>
-                    <button id="next" aria-label="Next track" class="control-btn"><i class="fas fa-step-forward" aria-hidden="true"></i></button>
-                    <button id="repeat" aria-label="Enable repeat" class="control-btn"><i class="fas fa-redo-alt" aria-hidden="true"></i></button>
+                    <button id="shuffle" aria-label="Enable shuffle" class="control-btn"><i class="fas fa-random"
+                            aria-hidden="true"></i></button>
+                    <button id="prev" aria-label="Previous track" class="control-btn"><i class="fas fa-step-backward"
+                            aria-hidden="true"></i></button>
+                    <button id="play-pause" class="play-circle" aria-label="Play or Pause"><i class="fas fa-play"
+                            id="play-icon" aria-hidden="true"></i></button>
+                    <button id="next" aria-label="Next track" class="control-btn"><i class="fas fa-step-forward"
+                            aria-hidden="true"></i></button>
+                    <button id="repeat" aria-label="Enable repeat" class="control-btn"><i class="fas fa-redo-alt"
+                            aria-hidden="true"></i></button>
                 </div>
                 <div class="progress-container">
                     <span id="current-time">0:00</span>
@@ -160,15 +180,18 @@
                     <span id="total-time">0:00</span>
                 </div>
             </div>
-            
+
             <div class="volume-controls">
                 <button aria-label="Lyrics" class="control-btn"><i class="fas fa-list" aria-hidden="true"></i></button>
-                <button aria-label="Devices" class="control-btn"><i class="fas fa-desktop" aria-hidden="true"></i></button>
-                <button aria-label="Mute volume" class="control-btn"><i class="fas fa-volume-up" id="volume-icon" aria-hidden="true"></i></button>
+                <button aria-label="Devices" class="control-btn"><i class="fas fa-desktop"
+                        aria-hidden="true"></i></button>
+                <button aria-label="Mute volume" class="control-btn"><i class="fas fa-volume-up" id="volume-icon"
+                        aria-hidden="true"></i></button>
                 <input type="range" id="volume-bar" value="100" min="0" max="100" aria-label="Volume control">
             </div>
         </footer>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
