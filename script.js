@@ -51,22 +51,38 @@ function init() {
 function renderSongList() {
     songListEl.innerHTML = '';
     songs.forEach((song, index) => {
-        const item = document.createElement('div');
-        item.className = 'song-item';
+        const item = document.createElement('article');
+        item.className = 'song-item fade-in-up';
+        item.style.animationDelay = `${0.35 + (index * 0.05)}s`;
         item.onclick = () => playSong(index);
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('aria-label', `Play ${song.title} by ${song.artist}`);
+        
         item.innerHTML = `
             <div class="song-index-container">
                 <span class="song-index">${index + 1}</span>
-                <i class="fas fa-play song-play-icon"></i>
+                <i class="fas fa-play song-play-icon" aria-hidden="true"></i>
             </div>
-            <img src="${song.cover}" alt="cover">
-            <div class="song-details">
-                <div class="title">${song.title}</div>
-                <div class="artist">${song.artist}</div>
+            <div class="song-title-col">
+                <img src="${song.cover}" alt="${song.title} cover" loading="lazy">
+                <div class="song-details">
+                    <div class="title">${song.title}</div>
+                    <div class="artist">${song.artist}</div>
+                </div>
             </div>
             <div class="album">Single</div>
             <div class="duration">3:00</div>
         `;
+        
+        // Handle keyboard interaction
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                playSong(index);
+            }
+        });
+        
         songListEl.appendChild(item);
     });
 }
@@ -77,6 +93,7 @@ function loadSong(index) {
     const song = songs[index];
     audio.src = song.src;
     currentCover.src = song.cover;
+    currentCover.alt = `${song.title} album cover`;
     currentTitle.textContent = song.title;
     currentArtist.textContent = song.artist;
     
@@ -101,12 +118,12 @@ function loadSong(index) {
 function togglePlay() {
     if (isPlaying) {
         audio.pause();
-        playIcon.classList.remove('fa-pause');
-        playIcon.classList.add('fa-play');
+        playIcon.className = 'fas fa-play';
+        playPauseBtn.setAttribute('aria-label', 'Play');
     } else {
         audio.play();
-        playIcon.classList.remove('fa-play');
-        playIcon.classList.add('fa-pause');
+        playIcon.className = 'fas fa-pause';
+        playPauseBtn.setAttribute('aria-label', 'Pause');
     }
     isPlaying = !isPlaying;
 }
@@ -120,8 +137,8 @@ window.playSong = function(index) {
     loadSong(index);
     audio.play();
     isPlaying = true;
-    playIcon.classList.remove('fa-play');
-    playIcon.classList.add('fa-pause');
+    playIcon.className = 'fas fa-pause';
+    playPauseBtn.setAttribute('aria-label', 'Pause');
 }
 
 // Next Song
@@ -214,13 +231,20 @@ const sidebar = document.getElementById('sidebar');
 if (mobileMenuBtn && sidebar) {
     mobileMenuBtn.addEventListener('click', () => {
         sidebar.classList.add('active');
+        sidebar.setAttribute('aria-hidden', 'false');
     });
 }
 
 if (closeSidebarBtn && sidebar) {
     closeSidebarBtn.addEventListener('click', () => {
         sidebar.classList.remove('active');
+        sidebar.setAttribute('aria-hidden', 'true');
     });
+}
+
+// Initial ARIA state
+if (sidebar) {
+    sidebar.setAttribute('aria-hidden', window.innerWidth <= 768 ? 'true' : 'false');
 }
 
 init();
