@@ -690,6 +690,7 @@ button {
 /* Range Input Styling */
 input[type=range] {
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     background: transparent;
     height: 4px;
@@ -712,6 +713,7 @@ input[type=range]:hover::-webkit-slider-runnable-track {
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
+    appearance: none;
     height: 12px;
     width: 12px;
     border-radius: 50%;
