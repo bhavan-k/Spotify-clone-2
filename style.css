@@ -181,9 +181,10 @@ button {
     padding: var(--space-md) var(--space-xl);
     position: sticky;
     top: 0;
-    background-color: rgba(18, 18, 18, 0.4);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background-color: rgba(18, 18, 18, 0.6);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 100;
     transition: background-color 0.3s ease;
 }
@@ -210,6 +211,17 @@ button {
     color: var(--text-bright);
     background-color: rgba(255,255,255,0.1);
     transform: scale(1.05);
+}
+
+.nav-arrows .nav-btn:active,
+.upgrade-btn:active,
+.profile-icon:active,
+.playlist-link:active,
+.mobile-menu-btn:active,
+.close-sidebar-btn:active,
+.control-btn:active,
+.play-btn-card:active {
+    transform: scale(0.95) !important;
 }
 
 .search-container {
@@ -310,7 +322,7 @@ button {
 }
 
 .content-body h2 {
-    font-size: 28px;
+    font-size: clamp(24px, 4vw, 32px);
     margin-bottom: var(--space-lg);
     font-weight: 700;
     letter-spacing: -0.04em;
@@ -336,14 +348,18 @@ button {
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     height: 100%;
 }
 
 .card:hover {
     background-color: var(--bg-card-hover);
     transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.card:active {
+    transform: scale(0.98);
 }
 
 .card-img-container {
@@ -537,9 +553,10 @@ button {
 /* Playbar */
 .playbar {
     grid-column: 1 / -1;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -824,7 +841,7 @@ input[type=range]:hover::-webkit-slider-thumb, input[type=range]:focus-visible::
     .content-body h2 { font-size: 24px; }
     
     .featured-cards {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
         gap: var(--space-md);
     }
 
