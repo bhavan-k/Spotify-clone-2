@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fab fa-spotify"></i>
+                <span>Spotify</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active"><i class="fas fa-home"></i> <span>Home</span></a>
+                <a href="#"><i class="fas fa-search"></i> <span>Search</span></a>
+                <a href="#"><i class="fas fa-book-open"></i> <span>Your Library</span></a>
+            </div>
+            <div class="nav-links secondary-nav">
+                <a href="#"><i class="fas fa-plus-square"></i> <span>Create Playlist</span></a>
+                <a href="#"><i class="fas fa-heart"></i> <span>Liked Songs</span></a>
+            </div>
+            <div class="divider"></div>
+            <div class="playlists">
+                <p>Chill Vibes</p>
+                <p>Focus Mix</p>
+                <p>Epic Orchestral</p>
+                <p>Electronic Drive</p>
+                <p>Daily Mix 1</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="topbar">
+                <div class="nav-arrows">
+                    <button><i class="fas fa-chevron-left"></i></button>
+                    <button><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="user-profile">
+                    <button class="upgrade-btn">Upgrade</button>
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                        <span>BK</span>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-body">
+                <h2>Good evening</h2>
+                
+                <div class="featured-cards">
+                    <div class="card" onclick="playSong(0)">
+                        <img src="images/album_cover_1_1778072184839.png" alt="Cover">
+                        <span>Electronic Hits</span>
+                        <button class="play-btn-card"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="card" onclick="playSong(1)">
+                        <img src="images/album_cover_2_1778072205727.png" alt="Cover">
+                        <span>Lofi Beats</span>
+                        <button class="play-btn-card"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="card" onclick="playSong(3)">
+                        <img src="images/album_cover_3_1778072221458.png" alt="Cover">
+                        <span>Epic Soundtracks</span>
+                        <button class="play-btn-card"><i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+
+                <h2>Your Top Songs</h2>
+                <div class="song-list" id="song-list">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Playbar -->
+        <div class="playbar">
+            <div class="now-playing">
+                <img id="current-cover" src="images/album_cover_1_1778072184839.png" alt="Cover">
+                <div class="track-info">
+                    <p id="current-title" class="title">Believe</p>
+                    <p id="current-artist" class="artist">Wanheda</p>
+                </div>
+                <i class="far fa-heart"></i>
+            </div>
+            
+            <div class="player-controls">
+                <div class="controls-buttons">
+                    <button id="shuffle"><i class="fas fa-random"></i></button>
+                    <button id="prev"><i class="fas fa-step-backward"></i></button>
+                    <button id="play-pause" class="play-circle"><i class="fas fa-play" id="play-icon"></i></button>
+                    <button id="next"><i class="fas fa-step-forward"></i></button>
+                    <button id="repeat"><i class="fas fa-redo-alt"></i></button>
+                </div>
+                <div class="progress-container">
+                    <span id="current-time">0:00</span>
+                    <input type="range" id="progress-bar" value="0" min="0" max="100">
+                    <span id="total-time">0:00</span>
+                </div>
+            </div>
+            
+            <div class="volume-controls">
+                <i class="fas fa-list"></i>
+                <i class="fas fa-desktop"></i>
+                <i class="fas fa-volume-up" id="volume-icon"></i>
+                <input type="range" id="volume-bar" value="100" min="0" max="100">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
