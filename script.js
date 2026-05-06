@@ -206,4 +206,21 @@ repeatBtn.addEventListener('click', () => {
     repeatBtn.style.color = isRepeat ? 'var(--primary)' : 'var(--text-base)';
 });
 
+// Mobile Sidebar Toggle
+const mobileMenuBtn = document.getElementById('mobile-menu');
+const closeSidebarBtn = document.getElementById('close-sidebar');
+const sidebar = document.getElementById('sidebar');
+
+if (mobileMenuBtn && sidebar) {
+    mobileMenuBtn.addEventListener('click', () => {
+        sidebar.classList.add('active');
+    });
+}
+
+if (closeSidebarBtn && sidebar) {
+    closeSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+    });
+}
+
 init();
