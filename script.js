@@ -35,6 +35,7 @@ const currentCover = document.getElementById('current-cover');
 const currentTitle = document.getElementById('current-title');
 const currentArtist = document.getElementById('current-artist');
 const songListEl = document.getElementById('song-list');
+const searchInput = document.getElementById('search-input');
 
 // Initialize App
 function init() {
@@ -48,12 +49,20 @@ function init() {
 }
 
 // Render Song List
-function renderSongList() {
+function renderSongList(filterQuery = '') {
     songListEl.innerHTML = '';
+    const query = filterQuery.toLowerCase();
+    let renderedCount = 0;
+
     songs.forEach((song, index) => {
+        if (query && !song.title.toLowerCase().includes(query) && !song.artist.toLowerCase().includes(query)) {
+            return;
+        }
+
         const item = document.createElement('article');
         item.className = 'song-item fade-in-up';
-        item.style.animationDelay = `${0.35 + (index * 0.05)}s`;
+        item.style.animationDelay = `${0.05 + (renderedCount * 0.05)}s`;
+        item.dataset.index = index;
         item.onclick = () => playSong(index);
         item.setAttribute('role', 'button');
         item.setAttribute('tabindex', '0');
@@ -84,6 +93,20 @@ function renderSongList() {
         });
         
         songListEl.appendChild(item);
+        renderedCount++;
+    });
+    
+    updateActiveSongClass();
+}
+
+function updateActiveSongClass() {
+    const items = document.querySelectorAll('.song-item');
+    items.forEach(item => {
+        if (parseInt(item.dataset.index) === currentSongIndex) {
+            item.classList.add('playing');
+        } else {
+            item.classList.remove('playing');
+        }
     });
 }
 
@@ -97,15 +120,7 @@ function loadSong(index) {
     currentTitle.textContent = song.title;
     currentArtist.textContent = song.artist;
     
-    // Update active class in list
-    const items = document.querySelectorAll('.song-item');
-    items.forEach((item, i) => {
-        if (i === index) {
-            item.classList.add('playing');
-        } else {
-            item.classList.remove('playing');
-        }
-    });
+    updateActiveSongClass();
 
     // Reset progress bar
     progressBar.value = 0;
@@ -222,6 +237,12 @@ repeatBtn.addEventListener('click', () => {
     isRepeat = !isRepeat;
     repeatBtn.style.color = isRepeat ? 'var(--primary)' : 'var(--text-base)';
 });
+
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        renderSongList(e.target.value);
+    });
+}
 
 // Mobile Sidebar Toggle
 const mobileMenuBtn = document.getElementById('mobile-menu');
